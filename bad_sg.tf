@@ -1,5 +1,6 @@
 provider "aws" {
   region = "us-east-2"
+  profile = "LW_Dominus"
 }
 
 resource "aws_security_group" "bad_example" {
