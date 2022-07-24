@@ -7,7 +7,7 @@ repos:
   # allowed_overrides specifies which keys can be overridden by this repo in
   # its atlantis.yaml file.
 
-  allowed_overrides: []
+  allowed_overrides: [workflow]
 
   # allowed_workflows specifies which workflows the repos that match
   # are allowed to select.
@@ -16,7 +16,7 @@ repos:
   # workflows. If false (default), the repo can only use server-side defined
   # workflows.
 
-  allow_custom_workflows: false
+  allow_custom_workflows: true
 
   # delete_source_branch_on_merge defines whether the source branch would be deleted on merge
   # If false (default), the source branch won't be deleted on merge
