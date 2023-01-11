@@ -12,3 +12,13 @@ resource "aws_security_group" "bad_example" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+resource "aws_security_group" "another_bad_example" {
+  name = "another_bad_security_group"
+  ingress {
+    from_port   = 1234
+    to_port     = 1234
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
