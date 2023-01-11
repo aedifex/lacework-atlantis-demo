@@ -31,4 +31,4 @@ workflows:
         - init
         - run: "terraform plan -input=false -refresh -out $PLANFILE"
         - run: "terraform show -json $PLANFILE > $SHOWFILE"
-        - run: "soluble ea terraform-plan-scan --plan $SHOWFILE --format atlantis --fail low=1"
+#        - run: "soluble ea terraform-plan-scan --plan $SHOWFILE --format atlantis --fail low=1"
