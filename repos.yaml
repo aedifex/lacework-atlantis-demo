@@ -1,0 +1,34 @@
+# repos lists the config for specific repos.
+repos:
+- id: /.*/
+  branch: /.*/
+  apply_requirements: [approved, mergeable]
+
+  # allowed_overrides specifies which keys can be overridden by this repo in
+  # its atlantis.yaml file.
+
+  allowed_overrides: [workflow]
+
+  # allowed_workflows specifies which workflows the repos that match
+  # are allowed to select.
+
+  # allow_custom_workflows defines whether this repo can define its own
+  # workflows. If false (default), the repo can only use server-side defined
+  # workflows.
+
+  allow_custom_workflows: true
+
+  # delete_source_branch_on_merge defines whether the source branch would be deleted on merge
+  # If false (default), the source branch won't be deleted on merge
+
+  delete_source_branch_on_merge: false
+
+# workflows lists server-side custom workflows
+workflows:
+  default:
+    plan:
+      steps:
+        - init
+        - run: "terraform plan -input=false -refresh -out $PLANFILE"
+        - run: "terraform show -json $PLANFILE > $SHOWFILE"
+#        - run: "soluble ea terraform-plan-scan --plan $SHOWFILE --format atlantis --fail low=1"
